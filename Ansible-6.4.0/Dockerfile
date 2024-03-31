@@ -14,6 +14,9 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 
 RUN python3 get-pip.py 
 RUN python3 -m pip install ansible==6.4.0
+RUN python3 -m pip install ansible-core==2.13.4
+RUN python3 -m pip install pywinrm
+RUN python3 -m pip install pyvmomi
 
 # Create user and set password for user and root user
 RUN useradd -rm -d /home/tom -s /bin/bash -g root -G sudo -u 1000 tom && \
