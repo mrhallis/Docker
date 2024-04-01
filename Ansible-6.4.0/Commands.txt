@@ -11,3 +11,15 @@ docker run -d -p 2222:22 ubuntu-ansible
 ssh ansible@localhost -p 2222
 
 ansible-config init --disabled -t all > ansible.cfg
+{all,base,become,cache,callback,cliconf,connection,httpapi,inventory,lookup,netconf,shell,vars}
+
+sudo mkdir /etc/ansible
+sudo groupadd ansible
+sudo usermod -aG ansible tom
+sudo chown -R tom:ansible /etc/ansible
+sudo chgrp -R ansible /etc/ansible 
+sudo chmod g+rwx /etc/ansible
+
+ansible-config init --disabled -t base > /etc/ansible/ansible.cfg
+ansible-config init --disabled -t inventory > /etc/ansible/hosts
+ansible-config init --disabled -t vars > /etc/ansible/vars.yml

@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt -qqy update && apt -qqy upgrade && apt -y install build-essential \
  zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev \
  libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev \
- openssh-server curl nano sudo libkrb5-dev krb5-user
+ openssh-server curl nano sudo libkrb5-dev krb5-user net-tools iproute2
 
 # Create user and set password for user and root user
 RUN useradd -rm -d /home/ansible -s /bin/bash -g root -G sudo -u 1000 ansible && \
