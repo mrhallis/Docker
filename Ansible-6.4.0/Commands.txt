@@ -1,25 +1,17 @@
 curl -sSL https://get.docker.com/ | sudo sh
 sudo usermod -aG docker $USER
-mkdir docker
-cd docker
+mkdir -p docker/Ansible-6.4.0/files
+cd docker/Ansible-6.4.0/files
 ssh-keygen
 cp $HOME/.ssh/id_rsa.pub .
+wget https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
+curl -L -o powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v7.4.1/powershell-7.4.1-linux-arm64.tar.gz
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+# Build also expect certfiles, ansible.cfg, ansiblehosts and krb5.conf file in /files
 
+cd ..
 wget https://raw.githubusercontent.com/mrhallis/Docker/main/Ansible-6.4.0/Dockerfile
 docker build . -t ubuntu-ansible
 docker run -d -p 2222:22 ubuntu-ansible
 ssh ansible@localhost -p 2222
 
-ansible-config init --disabled -t all > ansible.cfg
-{all,base,become,cache,callback,cliconf,connection,httpapi,inventory,lookup,netconf,shell,vars}
-
-sudo mkdir /etc/ansible
-sudo groupadd ansible
-sudo usermod -aG ansible tom
-sudo chown -R tom:ansible /etc/ansible
-sudo chgrp -R ansible /etc/ansible 
-sudo chmod g+rwx /etc/ansible
-
-ansible-config init --disabled -t base > /etc/ansible/ansible.cfg
-ansible-config init --disabled -t inventory > /etc/ansible/hosts
-ansible-config init --disabled -t vars > /etc/ansible/vars.yml
