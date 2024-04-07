@@ -7,7 +7,7 @@ cp $HOME/.ssh/id_rsa.pub .
 wget https://www.python.org/ftp/python/3.9.7/Python-3.9.7.tgz
 curl -L -o powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v7.4.1/powershell-7.4.1-linux-arm64.tar.gz
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-# Build also expect certfiles, ansible.cfg, ansiblehosts and krb5.conf file in /files
+# Build also expect certfiles file in /files
 
 cd ..
 wget https://raw.githubusercontent.com/mrhallis/Docker/main/Ansible-6.4.0/Dockerfile

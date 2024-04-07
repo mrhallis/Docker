@@ -1,0 +1,17 @@
+[local]
+127.0.0.1 ansible_connection=local
+
+[control]
+W2016DC1.HEMTEST.LAB ansible_host=192.168.1.41
+W2016DC2.HEMTEST.LAB ansible_host=192.168.1.42
+
+[web]
+
+[control:vars]
+ansible_connection=winrm
+ansible_winrm_cert_pem=/home/ansible/cert.pem
+ansible_winrm_cert_key_pem=/home/ansible/cert_key.pem
+ansible_winrm_transport=certificate
+ansible_winrm_server_cert_validation=ignore
+ansible_shell_type=powershell
+shell_type=powershell

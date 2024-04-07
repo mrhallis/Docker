@@ -1,1 +1,5 @@
-**/files/
+Ansible-6.4.0/files/Python-3.9.7.tgz
+Ansible-6.4.0/files/*.pem
+Ansible-6.4.0/files/get-pip.py
+Ansible-6.4.0/files/id_rsa.pub
+Ansible-6.4.0/files/powershell.tar.gz
